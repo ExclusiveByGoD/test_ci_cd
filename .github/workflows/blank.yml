@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [ "**" ]
+
+env:
+  FULL_NAME: "Assylzhan Sailaubek"
+  PROJECT_NAME: "My_Project"
+  PROJECT_DESCRIPTION: "This is my example project for TechOrda"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        
+      - name: Run test script
+        run: |
+          echo "== TEST JOB =="
+          echo "FULL_NAME: $FULL_NAME"
+          echo "PROJECT_NAME: $PROJECT_NAME"
+          echo "PROJECT_DESCRIPTION: $PROJECT_DESCRIPTION"
+          echo "== RUNNING =="
+          echo "I am a unit test!"
+          echo "GitHub step summary: $GITHUB_STEP_SUMMARY"
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Run build script
+        run: |
+          echo "== BUILD JOB =="
+          echo "FULL_NAME: $FULL_NAME"
+          echo "PROJECT_NAME: $PROJECT_NAME"
+          echo "PROJECT_DESCRIPTION: $PROJECT_DESCRIPTION"
+          echo "== RUNNING =="
+          echo "I am a build script!"
+          echo "GitHub step summary: $GITHUB_STEP_SUMMARY"
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Run deploy script
+        run: |
+          echo "== DEPLOY JOB =="
+          echo "FULL_NAME: $FULL_NAME"
+          echo "PROJECT_NAME: $PROJECT_NAME"
+          echo "PROJECT_DESCRIPTION: $PROJECT_DESCRIPTION"
+          echo "== RUNNING =="
+          echo "I am a deploy script!"
+          echo "GitHub step summary: $GITHUB_STEP_SUMMARY"
